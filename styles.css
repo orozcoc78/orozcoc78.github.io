@@ -139,11 +139,11 @@ body {
     font-weight: bold;
 }
 
-#headerLong {
+.headerLong {
     display: inline-block;
 }
 
-#headerShort {
+.headerShort {
     display: none;
 }
 
@@ -355,10 +355,10 @@ footer {
     #headerInfo {
         width: 90%;
     }
-    #headerLong {
+    .headerLong {
         display: none;
     }
-    #headerShort {
+    .headerShort {
         display: inline-block;
     }
 }
