@@ -20,7 +20,7 @@ body {
         padding-top: 0;
         padding: auto;
 		height: 10vh;
-		font-size: calc(1vw + 1.5em);
+		font-size: calc(1vw + 2em);
 	}
 }
 
@@ -251,7 +251,11 @@ body {
     height: 80vh;
 }
 
-
+.subHeader {
+    font-weight:normal;
+    font-size: calc(1vw + 1.5em);
+    margin-bottom: 10vh;
+}
 
 
 
