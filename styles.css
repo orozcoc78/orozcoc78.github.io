@@ -1,0 +1,339 @@
+body {
+    font-family: Consolas;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+/* TOP BAR ANIMATION AND CSS */
+@keyframes sticky-parallax-header-move-and-size {
+	from {
+		background-position: 50% 0;
+		height: 100vh;
+		font-size: calc(4vw + 2em);
+	}
+	to {
+		background-position: 50% 100%;
+		background-color: var(--color-dark);
+        color:var(--color-light);
+        padding-top: 0;
+        padding: auto;
+		height: 10vh;
+		font-size: calc(1vw + 1.5em);
+	}
+}
+
+#welcome {
+    z-index: 1;
+    width: 100%;
+	position: fixed;
+	top: 0;
+    
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 30vh;
+
+	animation: sticky-parallax-header-move-and-size linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0vh 90vh;
+}
+
+/* ------------------------------------ */
+
+/* HEADER ANIMATION */
+
+@keyframes headerLeft {
+    from {
+        transform: translate(0%,50%);
+    }
+    to {
+        transform: translate(-100%, -50%);
+        top: 50%;
+        left:var(--space-right);
+    }
+}
+
+#leftHeader {
+    position: absolute;
+    white-space: nowrap;
+    left: var(--space-before);
+    top:40vh;
+
+    transition: top linear forwards;
+    animation: headerLeft ease-out forwards;
+	animation-timeline: scroll();
+	animation-range: 0vh 90vh;
+}
+
+@keyframes headerRight {
+    from {
+        transform: translate(0%,-50%);
+    }
+    to {
+        transform: translate(0%,-50%);
+        top: 50%;
+        left: var(--space-left);
+    }
+}
+
+#rightHeader {
+    position: absolute;
+    white-space: nowrap;
+    left: var(--space-before);
+    top:40vh;
+
+    transition: top linear forwards;
+    animation: headerRight ease-out forwards;
+	animation-timeline: scroll();
+	animation-range: 0vh 90vh;
+}
+
+@keyframes headerInforAnim {
+    from {
+        transform: translate(0%, 0%);
+        color: var(--color-dark);
+    }
+    to {
+        transform: translate(0%, -100%);
+        font-size: calc(1vh + 1vw);
+        color: var(--color-dark-alpha);
+        top:50%;
+    }
+}
+
+#headerInfo {
+    width: 70%;
+    position: absolute;
+    font-size: calc(1.5vh + 1.5vw);
+    left: var(--space-before);
+    top: calc(45vh + calc(4vw + 2em));
+
+    animation: headerInforAnim linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0vh 90vh;
+}
+
+@keyframes highlightAnim {
+    from {
+        color: var(--color-highlight);
+    }
+    to {
+        color: var(--color-highlight-alpha);
+    }
+    
+}
+
+.highlightHeader {
+    font-weight: bold;
+
+    animation: highlightAnim linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0vh 80vh;
+}
+
+.highlight {
+    color: var(--color-highlight);
+    font-weight: bold;
+}
+
+/* ------------------------------------ */
+
+/* CARDS */
+
+:root {
+    --color-light:#EEEEEE;
+    --color-light-alpha: #EEEEEE00;
+    --color-highlight:#FF5F00;
+    --color-highlight-alpha: #FF5F0000;
+    --color-highlight-half: #FF5F0090;
+    --color-highlight-low: #FF5F0060;
+    --color-dark:#222831;
+    --color-dark-alpha: #22283100;
+
+    --space-before: 15%;
+    --space-right: 90%;
+    --space-left: 10%;
+
+	--card-margin: 4vw;
+	--card-top-offset: 2vh;
+	--outline-width: 0px;
+}
+
+#cards {
+	/* Make place at bottom, as items will slide to that position*/
+	padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+	/* Don't include the --card-margin in padding, as that will affect the scroll-timeline*/
+	margin-bottom: var(--card-margin);
+}
+
+#card_1 {
+	--index: 1;
+}
+
+#card_2 {
+	--index: 2;
+}
+
+#card_3 {
+	--index: 3;
+}
+
+#card_4 {
+	--index: 4;
+}
+
+.card__content {
+    font-size: 2vh;
+    height: 50%;
+    text-align: center;
+	transform-origin: 50% 0%;
+	will-change: transform;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 5vh;
+    height: 70vh;
+    box-shadow: 0px 5px 80px 0px var(--color-highlight-half);
+}
+
+.card {
+	position: sticky;
+	top: 12vh;
+	padding-top: calc(var(--index) * var(--card-top-offset));
+    margin-bottom: 15vh;
+    max-height: 75vh;
+	--index0: calc(var(--index) - 1); /* 0-based index */
+	--reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
+	--reverse-index0: calc(var(--reverse-index) - 1); /* 0-based reverse index */
+}
+
+@keyframes scale {
+	to {
+		transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        box-shadow: 0px 5px 80px 0px var(--color-highlight-low);
+	}
+}
+
+#cards {
+	--numcards: 4;
+	view-timeline-name: --cards-element-scrolls-in-body;
+}
+
+.card__content {
+	--start-range: calc(var(--index0) / var(--numcards) * 100%);
+	--end-range: calc((var(--index)) / var(--numcards) * 88%);
+
+	animation: linear scale forwards;
+	animation-timeline: --cards-element-scrolls-in-body;
+	animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+}
+
+.card_content_inner {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+/* ------------------------------------ */
+
+
+
+
+
+
+
+
+#separate {
+    z-index: -1;
+	padding-top: 110vh;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+section {
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #0056b3;
+}
+
+
+
+
+
+
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 10vh 0;
+    text-align: center;
+}
+
+
+/* Light theme / dark theme automatic */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-light:#EEEEEE;
+        --color-light-alpha: #EEEEEE00;
+        --color-highlight:#FF5F00;
+        --color-highlight-alpha: #FF5F0000;
+        --color-dark:#222831;
+        --color-dark-alpha: #22283100;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-dark:#EEEEEE;
+        --color-dark-alpha: #EEEEEE00;
+        --color-highlight:#FF5F00;
+        --color-highlight-alpha: #FF5F0000;
+        --color-light:#222831;
+        --color-light-alpha: #22283100;
+    }
+}
+
+/* --------------------------------------------- */
+
+/* Responsive, they say */
+
+@media screen and (max-width: 768px) {
+    #separate {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    :root {
+        --space-before: 5%;
+        --space-right: 95%;
+        --space-left: 5%;
+    }
+    #headerInfo {
+        width: 90%;
+    }
+}
+
+/* --------------------------------------------- */
