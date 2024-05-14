@@ -139,6 +139,14 @@ body {
     font-weight: bold;
 }
 
+#headerLong {
+    display: inline-block;
+}
+
+#headerShort {
+    display: none;
+}
+
 /* ------------------------------------ */
 
 /* CARDS */
@@ -239,7 +247,9 @@ body {
 
 /* ------------------------------------ */
 
-
+#about {
+    height: 80vh;
+}
 
 
 
@@ -333,6 +343,12 @@ footer {
     }
     #headerInfo {
         width: 90%;
+    }
+    #headerLong {
+        display: none;
+    }
+    #headerShort {
+        display: inline-block;
     }
 }
 
