@@ -244,15 +244,6 @@ body {
     margin-bottom: 10vh;
 }
 
-#loadUser {
-    height: 100vh;
-}
-
-#loadUserText {
-    position: relative;
-    top:30%;
-}
-
 #about {
     height: 85vh;
 }
@@ -265,6 +256,42 @@ body {
     margin-top: -10vh;
     height: 70vh;
 }
+
+#contactGrid {
+    height: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+}
+
+.inputSpace {
+    resize: none;
+}
+
+#contactName {
+    margin-bottom: 3vh;
+    height: auto;
+    border-radius: 20px;
+    grid-column: 1 / span 4;
+}
+
+#contactEmail {
+    margin-bottom: 3vh;
+    max-height: ;
+    height: auto;
+    border-radius: 20px;
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 1;
+}
+
+#contactContent {
+    margin-bottom: 3vh;
+    height: auto;
+    border-radius: 20px;
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 3;
+}
+
 
 
 #separate {
