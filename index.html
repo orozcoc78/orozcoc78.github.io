@@ -81,12 +81,15 @@
 </section>
 
 <section id="contact">
-  <h1 class="subHeader">..\users\data> get <span class="highlight">contact</span></h1>
-    <div id="contactGrid">
-      <textarea name="name" class="inputSpace" id="contactName"></textarea>
-      <textarea name="email" class="inputSpace" id="contactEmail"></textarea>
-      <textarea name="content" class="inputSpace" id="contactContent"></textarea>
-      <div></div>
+  <h1 class="subHeader" id="contactHeader">..\users\data> get <span class="highlight">contact</span></h1>
+  <div id="contactGrid">
+      <label id="nameLabel">Name</label>
+      <input name="name" type="text" class="inputSpace" id="contactName"></input>
+      <label id="emailLabel">Email</label>
+      <input name="email" type="text" class="inputSpace" id="contactEmail"></input>
+      <label id="messageLabel">Message</label>
+      <textarea name="content" type="text" class="inputSpace" id="contactContent"></textarea>
+      <button id="submitContact" onclick="alert()"><div id="submitContactArrow">&#10162;</div></button>
       <div></div>
       <div></div>
       <div></div>
