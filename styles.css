@@ -241,6 +241,43 @@ body {
 
 /* ------------------------------------ */
 
+#aboutGrid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#aboutLeft {    
+    font-size: 2vh;
+}
+
+#aboutRight {
+    position: relative;
+    width: 100%;
+}
+
+#linkedin {
+    height: 15vh;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+}
+
+#github {
+    margin-top: 5vh;
+    height: 15vh;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+}
+
+#gmail {
+    margin-top: 5vh;
+    height: 15vh;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+}
+
 .subHeader {
     font-weight:normal;
     font-size: calc(1vw + 1.5em);
@@ -378,16 +415,22 @@ body {
     border-radius: 3vh;
     border: none;
     
-    transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s;
+    transition: background-color 0.25s, transform 0.25s, box-shadow 0.25s;
 
     grid-column: 4 / span 1;
-    grid-row: 1 / span 8;
+    grid-row: 2 / span 7;
 }
 
 #submitContact:hover {
     background-color: var(--color-highlight);
     transform: scale(110%);
-    box-shadow: 0px 0px 80px 5px var(--color-highlight);
+    box-shadow: 0px 0px 60px 40px var(--color-highlight-half);
+}
+
+#submitContact:active {
+    background-color: var(--color-light);
+    transform: scale(100%);
+    box-shadow: 0px 0px 80px 20px var(--color-highlight), inset 0px 0px 40px 10px var(--color-highlight-half);
 }
 
 #submitContactArrow {
@@ -420,28 +463,13 @@ ul {
 }
 
 ul li {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
-
-ul li a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-ul li a:hover {
-    color: #0056b3;
-}
-
-
-
-
-
 
 footer {
     background-color: var(--color-dark);
     color: var(--color-light);
-    padding: 5vh 0;
+    padding: 3vh 0;
     text-align: center;
 }
 
@@ -505,7 +533,12 @@ footer {
     }
     
     #submitContact:hover {
-        transform: scale(125%, 125%);
+        transform: scale(125%);
+    }
+    #submitContact:active {
+        background-color: var(--color-light);
+        transform: scale(100%);
+        box-shadow: 0px 0px 80px 20px var(--color-highlight), inset 0px 0px 20px 10px var(--color-highlight-half);
     }
 }
 
