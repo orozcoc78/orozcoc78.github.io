@@ -6,6 +6,10 @@
     <link rel="icon" type="image/png" href="code.png">
     <title>Christian - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
 </head>
 <body>
 
@@ -100,20 +104,19 @@
   </ul>
 </section>
 
-<section id="contact">
+<section id="contact" onload="loadSys()">
   <h1 class="subHeader" id="contactHeader">..\users\data> get <span class="highlight">contact</span></h1>
-  <div id="contactGrid">
-      <label id="nameLabel">Name</label>
-      <input name="name" type="text" class="inputSpace" id="contactName"></input>
-      <label id="emailLabel">Email</label>
-      <input name="email" type="text" class="inputSpace" id="contactEmail"></input>
-      <label id="messageLabel">Message</label>
-      <textarea name="content" type="text" class="inputSpace" id="contactContent"></textarea>
-      <button id="submitContact" onclick=""><div id="submitContactArrow">&#10162;</div></button>
-      <div></div>
-      <div></div>
-      <div></div>
+  <form id="contactForm">
+    <div id="contactGrid">
+      <label for="name" id="nameLabel">Name</label>
+      <input name="name" type="text" class="inputSpace" id="contactName" required></input>
+      <label for="email" id="emailLabel">Email</label>
+      <input name="email" type="text" class="inputSpace" id="contactEmail" required></input>
+      <label for="content" id="messageLabel">Message</label>
+      <textarea name="content" type="text" class="inputSpace" id="contactContent" required></textarea>
+      <button id="submitContact" type="submit" onclick=""><div id="submitContactArrow">&#10162;</div></button>
     </div>
+  </form>
 </section>
 </div>
 
