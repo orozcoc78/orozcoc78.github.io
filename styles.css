@@ -246,52 +246,103 @@ body {
     grid-template-columns: 60% 40%;
 }
 
-#aboutLeft {    
+#aboutLeft {
     font-size: 2vh;
+    width: 90%;
+    padding-right: 0%;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
 }
 
 #aboutRight {
+    top: 25%;
+    display: grid;
+    grid-template-columns: auto auto auto;
     position: relative;
     width: 100%;
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
 }
 
 #linkedin {
     content:url("linkedin-dark.png");
-    height: 15vh;
-    margin-left: 50%;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    margin-top: 5vh;
+    height: calc(10vw + 20px);
+    position: relative;
+    left: 50%;
     transform: translate(-50%, 0%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+    
+    transition: transform 0.3s, filter 0.3s;
+}
+
+#linkedin:hover {
+    transform: scale(110%) translate(-45%, 0%);
+    filter: drop-shadow(0px 0px 30px var(--color-highlight-half));
 }
 
 #github {
     content:url("github.png");
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
     margin-top: 5vh;
-    height: 15vh;
-    margin-left: 50%;
+    height: calc(10vw + 20px);
+    position: relative;
+    left: 50%;
     transform: translate(-50%, 0%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+    
+    transition: transform 0.3s, filter 0.3s;
+}
+
+#github:hover {
+    transform: scale(110%) translate(-45%, 0%);
+    filter: drop-shadow(0px 0px 30px var(--color-highlight-half));
 }
 
 #gmail {
     content:url("gmail.png");
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 1;
     margin-top: 5vh;
-    height: 15vh;
-    margin-left: 50%;
+    height: calc(10vw + 20px);
+    position: relative;
+    left: 50%;
     transform: translate(-50%, 0%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
+    
+    transition: transform 0.3s, filter 0.3s;
 }
 
-#skillsGrid {
-    display: grid;
-    grid-template-columns: 60% 40%;
+#gmail:hover {
+    transform: scale(110%) translate(-45%, 0%);
+    filter: drop-shadow(0px 0px 30px var(--color-highlight-half));
 }
 
-#skillsLeft {
-    grid-column: 1 / span 1;
+#about1 {
+    position: relative;
+    top: 10%;
+    transform: translate(0%, -50%);
+}
+
+#about2 {
+    position: relative;
+    top: 20%;
+    transform: translate(0%, -50%);
+}
+
+#divLine {
+    position: relative;
+    top: 10%;
+    transform: translate(0%, -50%);
+    border-top: 1px solid var(--color-dark);
 }
 
 #skillsRight {
     margin-top: 5%;
+    grid-row: 1 / span 1;
     grid-column: 2 / span 1;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -299,17 +350,21 @@ body {
 
 #skills1 {
     grid-column: 1 / span 1;
+    display: grid;
+    grid-template-columns: 100%;
 }
 
 #skills2 {
     grid-column: 2 / span 1;
+    display: grid;
+    grid-template-columns: 100%;
 }
 
 #skill1 {
     content: url("c.png");
     margin-top: 25%;
     margin-bottom: 20%;
-    height: 20vh;
+    height: calc(10vw + 20px);
     margin-left: 50%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
@@ -318,7 +373,7 @@ body {
 #skill2 {
     content: url("c++.png");
     margin-top: 20%;
-    height: 20vh;
+    height: calc(10vw + 20px);
     margin-left: 50%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
@@ -328,7 +383,7 @@ body {
     content: url("java.png");
     margin-top: 25%;
     margin-bottom: 20%;
-    height: 20vh;
+    height: calc(10vw + 20px);
     margin-left: 50%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
@@ -338,7 +393,7 @@ body {
     position: relative;
     content: url("python.png");
     margin-top: 20%;
-    height: 20vh;
+    height: calc(10vw + 20px);
     margin-left: 50%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0px 0px 10px var(--color-highlight-half));
@@ -351,10 +406,6 @@ body {
 }
 
 #about {
-    height: 85vh;
-}
-
-#skills {
     height: 85vh;
 }
 
@@ -613,7 +664,6 @@ footer {
         margin-top: 4vh;
         height: calc(4vh + calc(4vw + 10px));
     }
-    
     #submitContact:hover {
         transform: scale(125%);
     }
@@ -621,6 +671,109 @@ footer {
         background-color: var(--color-light);
         transform: scale(100%);
         box-shadow: 0px 0px 80px 20px var(--color-highlight), inset 0px 0px 20px 10px var(--color-highlight-half);
+    }
+    #aboutLeft {
+        width: 100%;
+    }
+    #divLine {
+        top: 0%
+    }
+    #skillsRight {
+        position: relative;
+        top: 60%;
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    #skills1 {
+        grid-template-columns: 50% 50%;
+    }
+
+    #skills2 {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        grid-template-columns: 50% 50%;
+    }
+
+    #skill1 {
+        grid-column: 1 / span 1;
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(10vw + 20px);
+        margin-left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    #skill2 {
+        grid-column: 2 / span 1;
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(10vw + 20px);
+        margin-left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    #skill3 {
+        grid-column: 1 / span 1;
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(10vw + 20px);
+        margin-left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    #skill4 {
+        grid-column: 2 / span 1;
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(10vw + 20px);
+        margin-left: 50%;
+        transform: translate(-50%, 50%);
+    }
+    
+    #aboutGrid {
+        grid-template-columns: 100% 0%;
+    }
+}
+
+@media screen and (max-width:1200px) and (min-width: 769px) {
+    #skillsRight {
+        grid-template-columns: 100%;
+    }
+    #divLine {
+        top: 5%
+    }
+    #skills2 {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    #skill1 {
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(8vw + 10px);
+    }
+
+    #skill2 {
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(8vw + 10px);
+    }
+
+    #skill3 {
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(8vw + 10px);
+    }
+
+    #skill4 {
+        margin-top: 10%;
+        margin-bottom: 0%;
+        height: calc(8vw + 10px);
+    }
+    
+    #aboutGrid {
+        grid-template-columns: 80% 20%;
     }
 }
 

@@ -11,15 +11,18 @@ window.onload = function() {
         // these IDs from the previous steps
         emailjs.sendForm("service_p5k74rv", "template_xpt9tlj", this, "hGAYFWZLq_ZQn8MgU")
             .then(() => {
-                console.log('SUCCESS!');
+                document.getElementById("contactName").value = 'Message Sent';
+                document.getElementById("contactEmail").value = 'Message Sent';
+                document.getElementById("contactContent").value = 'Message Sent';
             }, (error) => {
-                console.log('FAILED...', error);
+                document.getElementById("contactName").value = 'Error sending message';
+                document.getElementById("contactEmail").value = 'Error sending message';
+                document.getElementById("contactContent").value = 'Error sending message';
             });
-        document.getElementById("contactName").value = 'Sent';
-        document.getElementById("contactEmail").value = '';
-        document.getElementById("contactContent").value = '';
         setTimeout(function(){
             document.getElementById("contactName").value = '';
-       },1000);
+            document.getElementById("contactEmail").value = '';
+            document.getElementById("contactContent").value = '';
+       },1500);
     });
 }
